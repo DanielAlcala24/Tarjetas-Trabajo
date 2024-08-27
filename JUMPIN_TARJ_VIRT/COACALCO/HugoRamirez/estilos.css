@@ -81,7 +81,7 @@ body::before {
 .imagen {
     height: 120px;
     width: 120px;
-    background-image: url(foto.png);
+    background-image: url(foto.jpg);
     position: relative;
     top: 180px;
     margin-left: 159px;
