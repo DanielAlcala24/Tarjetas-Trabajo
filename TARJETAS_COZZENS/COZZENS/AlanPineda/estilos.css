@@ -94,12 +94,12 @@ body::before {
 }
 
 .imagen2 {
-    height: 50px;
+    height: 30px;
     width: 90px;
     background-image: url(st_logo.png);
     position: relative;
-    top: -50px;
-    margin-left: 210px;
+    top: -40px;
+    margin-left: 200px;
     background-size: cover;
     border: none;
     
