@@ -30,6 +30,43 @@
         <img class="im" src="3.jpeg" alt="Beneficios" width="1080" height="720" loading="lazy" decoding="async">
         <img class="im" src="4.jpeg" alt="Beneficios" width="660" height="1320" loading="lazy" decoding="async">
     </div>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+        <span class="lightbox-cerrar" aria-label="Cerrar">&times;</span>
+        <img class="lightbox-img" id="lightbox-img" src="" alt="Beneficios en pantalla completa">
+    </div>
+
+    <script>
+        (function () {
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImg = document.getElementById('lightbox-img');
+
+            function abrir(src) {
+                lightboxImg.src = src;
+                lightbox.classList.add('activo');
+                lightbox.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function cerrar() {
+                lightbox.classList.remove('activo');
+                lightbox.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                lightboxImg.src = '';
+            }
+
+            document.querySelectorAll('.im').forEach(function (img) {
+                img.addEventListener('click', function () {
+                    abrir(img.currentSrc || img.src);
+                });
+            });
+
+            lightbox.addEventListener('click', cerrar);
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') cerrar();
+            });
+        })();
+    </script>
 </body>
 
 </html>
