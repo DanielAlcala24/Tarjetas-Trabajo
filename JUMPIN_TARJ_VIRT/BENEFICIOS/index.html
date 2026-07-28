@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beneficios</title>
-    <link rel="stylesheet" href="estilos_beneficios.css">
+    <link rel="stylesheet" href="estilos_beneficios.css?v=2">
     <link rel="icon" href="logo.png">
     <link rel="preload" as="image" href="1.jpeg">
 </head>
@@ -31,9 +31,9 @@
         <img class="im" src="4.jpeg" alt="Beneficios" width="660" height="1320" loading="lazy" decoding="async">
     </div>
 
-    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" hidden>
         <span class="lightbox-cerrar" aria-label="Cerrar">&times;</span>
-        <img class="lightbox-img" id="lightbox-img" src="" alt="Beneficios en pantalla completa">
+        <img class="lightbox-img" id="lightbox-img" alt="">
     </div>
 
     <script>
@@ -43,6 +43,7 @@
 
             function abrir(src) {
                 lightboxImg.src = src;
+                lightbox.hidden = false;
                 lightbox.classList.add('activo');
                 lightbox.setAttribute('aria-hidden', 'false');
                 document.body.style.overflow = 'hidden';
@@ -50,9 +51,10 @@
 
             function cerrar() {
                 lightbox.classList.remove('activo');
+                lightbox.hidden = true;
                 lightbox.setAttribute('aria-hidden', 'true');
                 document.body.style.overflow = '';
-                lightboxImg.src = '';
+                lightboxImg.removeAttribute('src');
             }
 
             document.querySelectorAll('.im').forEach(function (img) {
